@@ -8,8 +8,12 @@ $g-fallback-font: "Open Sans", Arial, sans-serif;
 // Also, the color name must be in all lowercase, with the syllables separated
 // by a dash. (Ex.: "$c-this-is-a-color")
 // This convention is based on the following discussion: https://trello.com/c/zJwuLnvf
-$c-white: #fff;
+$c-white: #EFEEEE;
 $c-black: #000;
+$c-base-orange: #FF8833;
+$c-dark-orange: #AE4800;
+$c-med-orange: #EB6200;
+$c-light-orange: #FFD8BC;
 
 // font-weights
 $fw-thin       : 100;
