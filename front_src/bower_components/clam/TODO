@@ -1,0 +1,7 @@
+
+CLAM
+- writing the rest of the jsDoc 
+- Adding tests (Karma + Mocha?)
+- remove outdated methods (ex.: HookEvent)
+- add promise support to support extendability.
+- deletion of modules?

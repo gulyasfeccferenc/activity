@@ -1,0 +1,17 @@
+{
+  "name": "clam",
+  "version": "0.4.0-alpha3",
+  "homepage": "https://github.com/ZeeCoder/clam",
+  "authors": [
+    "Hubert Viktor <rpgmorpheus@gmail.com>"
+  ],
+  "description": "Clam is a frontend toolset. It is under heavy deployment ATM, so use it with that in mind. Documentation will follow soon. No tests are included yet.",
+  "main": [],
+  "ignore": [],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": ">=1.9.0",
+    "q": "~1.0"
+  }
+}
