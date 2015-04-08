@@ -2,4 +2,17 @@ $amp: ".c-countdowner";
 
 #{$amp} {
     margin: 90px auto;
+    
+    &__chart {
+	    position: relative;
+	    &__percent {
+	    	color: $c-light-orange;
+	    	font-family: 'Quicksand';
+	    	font-size: 250px;
+	    	position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+	    }
+	}
 }
