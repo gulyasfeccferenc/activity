@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	Bármilyen szöveg
+	<div class="chart" data-percent="73">73%</div>
+	
+	<script src="bower/jquery/dist/jquery.js"></script>
+	<script src="bower/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+	<script type="text/javascript">
+        $(function() {
+            $('.chart').easyPieChart({
+                
+            });
+        });
+    </script>
 </body>
 </html>
