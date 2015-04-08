@@ -4,9 +4,10 @@
 // cutil.moduleConf.prefix = 'jsc'; // Clam uses the 'jsm' prefix by default.
 // var module = require('./clam_module/module');
 
-// var $ = require('jquery');
+var $ = require('jquery');
 var shame = require('./module/shame');
 var global = require('./module/global');
+var easyPieChart = require('./module/piechart');
 
 
 // Clam modules
@@ -16,3 +17,4 @@ var global = require('./module/global');
 // Standard modules
 global.init();
 shame.init();
+easyPieChart.init();
