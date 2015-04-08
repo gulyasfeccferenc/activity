@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head><title>Online Activity</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <link rel="stylesheet" href="web/css/style.css">
+</head>
+<body>
+    <header class="c-header">
+       <div class="c-header__title">
+            <h1>online activity</h1>
+       </div>
+       <div class="c-header__settings">
+           <a href="">
+               <img src="web/images/settings.png" alt="settings">
+           </a>
+       </div>
+    </header>
+    <div class="c-ui">
+        <div class="c-countdowner">
+	        <div class="js-chart" data-percent="73">73%</div>
+        </div>
+    </div>
+	
+	<script src="web/bower/jquery/dist/jquery.js"></script>
+	<script src="web/bower/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+	<script type="text/javascript">
+        $(function() {
+            $('.js-chart').easyPieChart({
+                animate: 2000,
+                barColor: '#AE4800',
+                trackColor: '#FFD8BC',
+                lineWidth: 24,
+                scaleColor: false,
+                size: 650
+            });
+        });
+    </script>
+</body>
+</html>
