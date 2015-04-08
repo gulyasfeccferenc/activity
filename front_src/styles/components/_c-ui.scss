@@ -2,4 +2,9 @@ $amp: ".c-ui";
 
 #{$amp} {
     display: flex;
+    &__actual {
+    	position: absolute;
+		bottom: 40px;
+		left: 50px;
+    }
 }
