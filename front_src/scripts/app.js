@@ -12,7 +12,21 @@ var easyPieChart = require('./module/piechart');
 
 // Clam modules
 // cutil.createPrototypes(module);
-
+$(".c-countdowner").on("click", function() {
+	var time = 100;
+	console.log(time);
+	clearInterval(counter);
+	easyPieChart.update(time);
+	var counter = setInterval(function() {
+		time--;
+		console.log(Math.round(time/1.67));
+		if(time <= 0) {
+			clearInterval(counter);
+			return;
+		}
+		easyPieChart.update(time);
+	}, 1000);
+});
 
 // Standard modules
 global.init();
