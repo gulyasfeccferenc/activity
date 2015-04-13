@@ -15,5 +15,6 @@ module.exports = {
     },
     update: function(count) {
        $('.js-chart').data('easyPieChart').update(count);
+       $('.c-countdowner__chart__percent').text(count);
     }
 };
