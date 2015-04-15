@@ -21,11 +21,8 @@
         <div class="c-ui__actual">
           <img src="web/images/draw.png" alt="">
         </div>
-        <div class="c-countdowner">
-          <div class="c-countdowner__chart js-chart" data-percent="100">
-            <span class="percent">60</span>
-            <div class="c-countdowner__chart__percent">60</div>
-          </div>
+        <input class="c-countdowner">
+         
         </div>
     </div>
 
@@ -43,7 +40,14 @@
     </div>
 	
     <script src="web/bower/jquery/dist/jquery.js"></script>
-    <script src="web/bower/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+    <script src="web/bower/jquery-knob/js/jquery.knob.js"></script>
     <script src="web/js/app.js"></script>
+    <script>
+      $(".c-countdowner").knob({
+        'max': 60,
+        'readOnly': true,
+        'thickness': 0.1
+      });
+    </script>
   </body>
 </html>

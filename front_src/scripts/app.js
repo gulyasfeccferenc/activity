@@ -7,32 +7,17 @@
 var $ = require('jquery');
 var shame = require('./module/shame');
 var global = require('./module/global');
-var easyPieChart = require('./module/piechart');
-
-var Gcounter = 100;
-
+var time;
 // Clam modules
 // cutil.createPrototypes(module);
-$(".c-countdowner").on("click", function() {
-	console.log(Gcounter);
-	clearInterval(counter);
-	easyPieChart.update(Gcounter);
-	var counter = setInterval(function() {
-		Gcounter--;
-		console.log(Math.round(Gcounter/1.67));
-		if(Gcounter <= 0) {
-			clearInterval(counter);
-			return;
-		}
-		easyPieChart.update(Gcounter);
-	}, 1000);
-});
 
 $(".c-overlay").on("click", function() {
 	$(this).css('display', 'none');
 });
 
 $(".c-ui__actual").on("click", function() {
+	clearInterval(kaka);
+	var kaka = timer();
 	newRound();
 });
 
@@ -40,7 +25,16 @@ function newRound() {
 	$(".c-overlay").css("display", "block");
 	$(".js-word").text("béla");
 };
+
+function timer() {
+	time = 60;
+		setInterval(function(){
+			time--;
+			$('.c-countdowner').val(time).trigger('change');
+		}, 1000);
+
+	
+}
 // Standard modules
 global.init();
 shame.init();
-easyPieChart.init();
