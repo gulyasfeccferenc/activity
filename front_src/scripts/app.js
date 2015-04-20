@@ -7,7 +7,8 @@
 var $ = require('jquery');
 var shame = require('./module/shame');
 var global = require('./module/global');
-var time;
+var time = 60;
+var kaka;
 // Clam modules
 // cutil.createPrototypes(module);
 
@@ -15,26 +16,29 @@ $(".c-overlay").on("click", function() {
 	$(this).css('display', 'none');
 });
 
+var tixo = function() {
+	time--;
+	$('.c-countdowner').val(time).trigger('change');	
+}
+
 $(".c-ui__actual").on("click", function() {
-	clearInterval(kaka);
-	var kaka = timer();
+	window.clearInterval(kaka);
+	kaka = window.setInterval(tixo, 1000);
 	newRound();
 });
 
 function newRound() {
 	$(".c-overlay").css("display", "block");
 	$(".js-word").text("béla");
+	time = 60;
+	// $(".c-countdowner").knob();
+	$(".c-countdowner").knob({
+        'max': 60,
+        'readOnly': true,
+        'thickness': 0.1
+      });
 };
 
-function timer() {
-	time = 60;
-		setInterval(function(){
-			time--;
-			$('.c-countdowner').val(time).trigger('change');
-		}, 1000);
-
-	
-}
 // Standard modules
 global.init();
 shame.init();
