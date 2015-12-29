@@ -30,7 +30,6 @@ function generate(request, response) {
   var path = request.url.replace("/", "");
   if(path === 'random') {
      randomWord.generate(function(e) {
-        console.log(e);
         response.writeHead(200, {'Content-Type':'plain/text'});  
         response.end(e);   
      })   
@@ -50,8 +49,8 @@ function serve(request, response) {
     }
 
     if(request.url.indexOf('.css') != -1){ //req.url has the pathname, check if it conatins '.css'
-
       fs.readFile(__dirname + request.url, function (err, data) {
+        console.log('befutó');
         if (err) console.log(err);
         response.writeHead(200, {'Content-Type': 'text/css'});
         response.write(data);

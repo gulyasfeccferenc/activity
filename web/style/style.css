@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
+
+body {
+    font-family: "Quicksand", Arial;
+    font-size: 1rem;
+    line-height: 1;
+    color: #EB6200;
+    background-color: #FF8833;
+    -webkit-font-smoothing: antialiased;
+}
