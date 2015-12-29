@@ -17,6 +17,7 @@ function home(requests, response) {
 		response.writeHead(200, {'Content-Type': 'text/plain'});
 		response.write('Header');
 		response.write('Content');
+		response.send('o/\n');
 		response.end('Footer');
 	}
 }
