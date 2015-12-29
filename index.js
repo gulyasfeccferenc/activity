@@ -1,10 +1,13 @@
-var http = require('http');
-var userName = 'chalkers';
-function printMessage(name, anyad, fasz) {
-	var message = name+', you had '+anyad+' and some serious ' + fasz;
-	console.log(message);
-};
+/**
+* Index.js
+* ~~~~~~~~
+* The main file of the Online Activity game
+* 
+*/
+var http = require('http'),
+	router = require('./router');
 
-var request = http.get("http://teamtreehouse.com/"+userName+".json", function(response) {
-	console.dir(response.statusCod)e;
-});
+http.createServer(function (request, response) {
+  router.home(request, response);
+}).listen(8080);
+console.log('Server initialized at port 8080');
