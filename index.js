@@ -9,5 +9,5 @@ var http = require('http'),
 
 http.createServer(function (request, response) {
   router.home(request, response);
-}).listen(8080);
-console.log('Server initialized at port 8080');
+}).listen(process.env.PORT || 80);
+console.log('Server initialized at port 80');
