@@ -2,23 +2,59 @@
   <article id="timer_container">
     {{counter}}
   </article>
-  <a href="" data-modal="#modal" class="modal__trigger"><i class="material-icons">autorenew</i></a>
+  <a href="" data-modal="#modal" class="modal__trigger floating"><i class="material-icons">autorenew</i></a>
 </section>
 <aside class="settings">
   
 </aside>
+<!-- Modal for fetching new activity-->
 <div id="modal" class="modal modal__bg" role="dialog" aria-hidden="true">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <h1 title="Draw"><i class="material-icons">create</i></h1>
-        <h1 title="Act" hidden><i class="material-icons">directions_walk</i></h1>
-        <h1 title="Describe" hidden><i class="material-icons">chat_bubble_outline</i></h1>
-        <p>{{randomWord}}</p>
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <h1 title="Draw"><i class="material-icons">create</i></h1>
+      <h1 title="Act" hidden><i class="material-icons">directions_walk</i></h1>
+      <h1 title="Describe" hidden><i class="material-icons">chat_bubble_outline</i></h1>
+      <p>{{randomWord}}</p>
         
         <!-- modal close button -->
-        <a href="" class="modal__close demo-close">
-          <i class="material-icons">cancel</i>
-        </a>
-      </div>
+      <a href="" class="modal__close demo-close">
+        <i class="material-icons">cancel</i>
+      </a>
     </div>
-  </div>        
+  </div>
+</div>        
+<!-- Modal for help -->
+<div id="modal_help" class="modal modal__bg" role="dialog" aria-hidden="true">
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <h1>Help</h1>
+      <p>It's a simple platform to play some Activity.</p>
+      <p>For a new game just simply
+        <ul class="text-left">
+          <li>Click on the refresh button in the bottom-right corner</li>  
+          <li>It will show on a dialog how you have to perform that word (Act, Draw or Describe)</li>  
+          <li>Below that you can see the actual word</li>  
+          <li>After you memorized the word, just close the dialog (with the x or just click anywhere)</li>  
+          <li>Click on the play button will start the counter.</li>  
+        </ul>
+      </p>
+      <!-- modal close button --> 
+      <a href="" class="modal__close demo-close">
+        <i class="material-icons">cancel</i>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- Modal for settings -->
+<div id="modal_settings" class="modal modal__bg" role="dialog" aria-hidden="true">
+  <div class="modal__dialog">
+    <div class="modal__content">
+      <h1>Settings</h1>
+      <p>You will reach the general settings here, when they done</p>
+      <!-- modal close button -->
+      <a href="" class="modal__close demo-close">
+        <i class="material-icons">cancel</i>
+      </a>
+    </div>
+  </div>
+</div>

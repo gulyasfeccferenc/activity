@@ -66,11 +66,12 @@ function countdownTimer() {
 function resetTimer() {
     clearTimeout(timer);
     count = DEFAULT_TIME;
-    displayTime();
+    displayTime('&#9658');
 }
 
-function displayTime() {
-    document.querySelector('#timer_container').innerHTML = count;
+function displayTime(unique) {
+    var insert = unique || count;
+    document.querySelector('#timer_container').innerHTML = insert;
 }
 
 var Modal = (function() {
@@ -260,12 +261,12 @@ var Modal = (function() {
 }());
 
 document.addEventListener('DOMContentLoaded', function(e) {
-    var newWordButton = document.querySelector('.modal__trigger'),
+    var newWordButton = document.querySelector('.modal__trigger.floating'),
         wordContainer = document.querySelector('.modal__content p'),
         counterButton = document.querySelector('#timer_container');
 
     document.addEventListener('click', function(e) {
-        if (e.target == newWordButton) {
+        if (e.target == newWordButton || e.target.parentNode == newWordButton) {
             ajax.post('/random', {}, function(e) {
                 showNewWord(wordContainer, e);
                 resetTimer();
