@@ -1,10 +1,191 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
 
+* {
+  box-sizing: border-box;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 body {
     font-family: "Quicksand", Arial;
     font-size: 1rem;
     line-height: 1;
     color: #EB6200;
-    background-color: #FF8833;
+    background-color: rgba(255,136,51,0.1);
     -webkit-font-smoothing: antialiased;
+}
+
+header {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 3px 16px rgba(235, 98, 0, 0.25);
+    color: #eb6200;
+}
+
+nav ul {
+    list-style: none;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+nav a.title {
+    position: absolute;
+    left: 1rem;
+    line-height: 1.5;
+    text-decoration: none;
+    color: #eB6200;
+}
+
+.main article {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%); /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+      -ms-transform: translate(-50%, -50%); /* IE 9 */
+          transform: translate(-50%, -50%); /* IE 10, Fx 16+, Op 12.1+ */
+    font-weight: 600;
+    font-size: 10rem;
+    border: 2rem solid #eB6200;
+    border-radius: 16rem;
+    padding: 4rem 2rem;
+    min-width: 22rem;
+    text-align: center;
+    cursor:pointer;
+}
+
+h1 .material-icons {
+    font-size: 7rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    cursor: default;
+}
+/**
+ * Material Modal CSS
+ */
+.modal {
+  will-change: visibility, opacity;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition-delay: $modal-delay;
+          transition-delay: $modal-delay;
+}
+.modal--active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal--align-top {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.modal__bg {
+  background: transparent;
+}
+.modal__dialog {
+  max-width: 600px;
+  padding: 1.2rem;
+}
+.modal__content {
+  will-change: transform, opacity;
+  position: relative;
+  text-align: center;
+  padding: 2.4rem;
+  background: #ffebee;
+  background-clip: padding-box;
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,0.25);
+  opacity: 0;
+  -webkit-transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.modal__content--active {
+  opacity: 1;
+}
+.modal__close {
+  	z-index: 1100;
+  	cursor: pointer;
+	position: absolute;
+	top: -0.5rem;
+	right: -0.5rem;
+	color: #eB6200;
+}
+.modal__close .material-icons{
+  	pointer-events: none;
+	color: #EB6200;
+	background: #FFEBEE;
+	border-radius: 4rem;
+}
+.modal__trigger {
+	position: absolute;
+	bottom: 3rem;
+	right: 3rem;
+	display: inline-block;
+	padding: 1.2rem;
+	color: rgba(255,255,255,0.8);
+	text-decoration: none;	
+	line-height: 1;
+	cursor: pointer;
+	background: #eb6200;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-select: none;
+	 -moz-user-select: none;
+	  -ms-user-select: none;
+	      user-select: none;
+	-webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+	transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.modal__trigger--active {
+  z-index: 10;
+}
+.modal__trigger:hover {
+  background: #e5d3d6;
+}
+#modal__temp {
+  will-change: transform, opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffebee;
+  -webkit-transform: none;
+          transform: none;
+  opacity: 1;
+  -webkit-transition: opacity 0.1s ease-out, -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 0.1s ease-out, -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 0.1s ease-out, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 0.1s ease-out, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
