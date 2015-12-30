@@ -21,8 +21,6 @@ body {
     font-family: "Quicksand", Arial;
     font-size: 1rem;
     line-height: 1;
-    color: #EB6200;
-    background-color: rgba(255,136,51,0.1);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -31,8 +29,6 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0px 3px 16px rgba(235, 98, 0, 0.25);
-    color: #eb6200;
 }
 
 nav ul {
@@ -50,8 +46,7 @@ nav a.title {
     position: absolute;
     left: 1rem;
     line-height: 1.5;
-    text-decoration: none;
-    color: #eB6200;
+    text-decoration: none;    
 }
 
 .main article {
@@ -63,7 +58,6 @@ nav a.title {
           transform: translate(-50%, -50%); /* IE 10, Fx 16+, Op 12.1+ */
     font-weight: 600;
     font-size: 10rem;
-    border: 2rem solid #eB6200;
     border-radius: 16rem;
     padding: 4rem 2rem;
     min-width: 22rem;
@@ -132,7 +126,6 @@ h1 .material-icons {
   position: relative;
   text-align: center;
   padding: 2.4rem;
-  background: #ffebee;
   background-clip: padding-box;
   box-shadow: 0 12px 15px 0 rgba(0,0,0,0.25);
   opacity: 0;
@@ -148,12 +141,10 @@ h1 .material-icons {
 	position: absolute;
 	top: -0.5rem;
 	right: -0.5rem;
-	color: #eB6200;
+	
 }
 .modal__close .material-icons{
   	pointer-events: none;
-	color: #EB6200;
-	background: #FFEBEE;
 	border-radius: 4rem;
 }
 .modal__trigger {
@@ -170,12 +161,10 @@ h1 .material-icons {
 	bottom: 3rem;
 	right: 3rem;
 	display: inline-block;
-	padding: 1.2rem;
-	color: rgba(255,255,255,0.8);
+	padding: 1.2rem;	
 	text-decoration: none;	
 	line-height: 1;
 	cursor: pointer;
-	background: #eb6200;
 	border-radius: 3rem;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 }
@@ -200,4 +189,157 @@ h1 .material-icons {
   transition: opacity 0.1s ease-out, -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   transition: opacity 0.1s ease-out, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   transition: opacity 0.1s ease-out, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Color schemes */
+.color-picker span {
+	width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    border-radius: 4rem;
+    cursor: pointer;
+    position: relative;
+}
+.color-picker span:after {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%); /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+      -ms-transform: translate(-50%, -50%); /* IE 9 */
+          transform: translate(-50%, -50%); /* IE 10, Fx 16+, Op 12.1+ */
+}
+.color-picker span.orange {
+	background:#EB6200;
+}
+.color-picker span.lime  {
+	background:rgb(0, 235, 107);
+}
+.color-picker span.black {
+	background:rgb(80, 80, 80);
+}
+.color-picker span.blue {
+	background:rgb(96, 151, 255);
+}
+.blue .color-picker span.blue:after,
+.black .color-picker span.black:after,
+.lime .color-picker span.lime:after,
+.orange .color-picker span.orange:after {
+	content: '\2713';
+}
+/* Orange */
+body.orange {
+	color: #EB6200;
+	background-color: rgba(255,136,51,0.1);
+}
+.orange header {
+	box-shadow: 0px 3px 16px rgba(235, 98, 0, 0.25);
+    color: #eb6200;
+}
+.orange nav a.title {
+	color: #eB6200;
+}
+.orange .main article {
+	border: 2rem solid #eB6200;
+}
+.orange .modal__content {
+	background: #FFEBEE;
+}
+.orange .modal__close {
+	color: #eB6200;
+}
+.orange .modal__close .material-icons{
+	color: #EB6200;
+	background: #FFEBEE;
+}
+.orange .modal__trigger.floating {
+	background: #eb6200;
+	color: rgba(255,255,255,0.8);
+}
+/* Lime */
+body.lime {
+	color: rgb(0, 235, 107);
+    background-color: rgba(56, 255, 51, 0.1);
+}
+.lime header {
+	box-shadow: 0px 3px 16px rgb(0, 235, 107);
+    color: rgb(0, 235, 107);
+}
+.lime nav a.title {
+	color: rgb(0, 235, 107);
+}
+.lime .main article {
+	border: 2rem solid rgb(0, 235, 107);
+}
+.lime .modal__close {
+	color: rgb(0, 235, 107);
+}
+.lime .modal__content {
+	background: rgb(217, 255, 229);;
+}
+.lime .modal__close .material-icons{
+	color: rgb(0, 235, 107);
+	background: rgb(217, 255, 229);;
+}
+.lime .modal__trigger.floating {
+	background: rgb(0, 235, 107);
+	color: rgba(255,255,255,0.8);
+}
+/* B&W */
+body.black {
+	color: rgb(80, 80, 80);
+    background-color: rgb(255, 255, 255);
+}
+.black header {
+	box-shadow: 0px 3px 16px rgb(80, 80, 80);
+    color: rgb(80, 80, 80);
+}
+.black nav a.title {
+	color: rgb(80, 80, 80);
+}
+.black .main article {
+	border: 2rem solid rgb(80, 80, 80);
+}
+.black .modal__close {
+	color: rgb(80, 80, 80);
+}
+.black .modal__content {
+	background: rgb(255, 255, 255);
+}
+.black .modal__close .material-icons{
+	color: rgb(80, 80, 80);
+	background: rgb(255, 255, 255);
+}
+.black .modal__trigger.floating {
+	background: rgb(80, 80, 80);
+	color: rgb(255, 255, 255);
+}
+/* Blue */
+body.blue {
+	color: rgb(96, 151, 255);
+    background-color: rgb(237, 251, 255);
+}
+.blue header {
+	box-shadow: 0px 3px 16px rgb(96, 151, 255);
+    color: rgb(96, 151, 255);
+}
+.blue nav a.title {
+	color: rgb(96, 151, 255);
+}
+.blue .main article {
+	border: 2rem solid rgb(96, 151, 255);
+}
+.blue .modal__close {
+	color: rgb(96, 151, 255);
+}
+.blue .modal__content {
+	background: rgb(237, 251, 255);
+}
+.blue .modal__close .material-icons{
+	color: rgb(96, 151, 255);
+	background: rgb(237, 251, 255);
+}
+.blue .modal__trigger.floating {
+	background: rgb(96, 151, 255);
+	color: rgb(237, 251, 255);
 }

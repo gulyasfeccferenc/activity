@@ -196,7 +196,7 @@ var Modal = (function() {
     var close = function(event) {
 
         event.preventDefault();
-        event.stopImmediatePropagation();
+        //event.stopImmediatePropagation();
 
         var target = event.target;
         var div = document.getElementById('modal__temp');
@@ -266,6 +266,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
         counterButton = document.querySelector('#timer_container');
 
     document.addEventListener('click', function(e) {
+        console.log(e.target);
         if (e.target == newWordButton || e.target.parentNode == newWordButton) {
             ajax.post('/random', {}, function(e) {
                 showNewWord(wordContainer, e);
@@ -273,6 +274,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
             });
         } else if (e.target == counterButton && count == DEFAULT_TIME) {
             countdownTimer();
+        } else if (e.target.hasAttribute("data-color")) {
+            document.body.className = e.target.getAttribute('data-color');
         }
     });
 
