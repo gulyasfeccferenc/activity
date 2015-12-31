@@ -1,6 +1,10 @@
-var ajax = {};
-var DEFAULT_TIME = 60;
-var timer, count;
+// Setting some global variables
+var DEFAULT_TIME = 60,
+    COLOR_SCHEME = getCookie('color_scheme') || 'orange',
+    timer, count,
+    ajax = {};
+
+//Dealing with AJAX
 ajax.x = function() {
     if (typeof XMLHttpRequest !== 'undefined') {
         return new XMLHttpRequest();  
@@ -47,12 +51,22 @@ ajax.post = function(url, data, callback, sync) {
     ajax.send(url, callback, 'POST', query.join('&'), sync)
 };
 
+/**
+* Will change the word to the new one.
+*
+* @param {HTMLDom Element} domElement - Element to change its content
+* @param {string} newWord - The new word to show
+*/
 function showNewWord(domElement, newWord) {
     if (typeof domElement != 'undefined' && domElement != null) {
         domElement.innerHTML = newWord;
     }
 }
 
+/**
+* This will countdown until reaching zero, refreshing
+* the timer every second.
+*/
 function countdownTimer() {
     displayTime();
     if (count == 0) {
@@ -63,16 +77,66 @@ function countdownTimer() {
     }
 }
 
+/**
+* It will reset the global ('timer') timer,
+* reinit the global counter and display a play button.
+*/
 function resetTimer() {
     clearTimeout(timer);
     count = DEFAULT_TIME;
     displayTime('&#9658');
 }
 
+/**
+* Function which set the inner of the timer with a given value
+* or with the value of the global 'count';
+*
+* @param {string} unique - The unique string you want to show.
+*/
 function displayTime(unique) {
     var insert = unique || count;
     document.querySelector('#timer_container').innerHTML = insert;
 }
+
+/**
+* Return with the value of a cookie data
+*
+* @param {string} cookie - The name of the wanted cookie
+* @return {string|null} - The wanted value or null, if there is no match
+*/
+function getCookie(cookie) {
+    var all = document.cookie,
+        parts = all.split("="),
+        value;
+        for (var key in parts) {
+            if (parts[key] === 'oa__'+cookie) {
+                value = key++;
+                continue;
+            }
+        }
+    return current = parts[value+1] || null;
+}
+
+/**
+* Will set a cookie value
+*
+* @param {string} cookie - The name of the cookie, without the 'oa__' prefix
+* @param {string} value - The new value
+*/
+function setCookie(cookie, value) {
+    document.cookie = "oa__"+cookie+"="+value;
+}
+
+/**
+* Change the class of the body, according to the argument.
+*
+* @param {string} value - The new color scheme
+*/
+function setColorScheme(value) {
+    setCookie('color_scheme', value);
+    document.body.className = value;
+}
+
 
 var Modal = (function() {
 
@@ -264,9 +328,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     var newWordButton = document.querySelector('.modal__trigger.floating'),
         wordContainer = document.querySelector('.modal__content p'),
         counterButton = document.querySelector('#timer_container');
-
     document.addEventListener('click', function(e) {
-        console.log(e.target);
         if (e.target == newWordButton || e.target.parentNode == newWordButton) {
             ajax.post('/random', {}, function(e) {
                 showNewWord(wordContainer, e);
@@ -275,9 +337,16 @@ document.addEventListener('DOMContentLoaded', function(e) {
         } else if (e.target == counterButton && count == DEFAULT_TIME) {
             countdownTimer();
         } else if (e.target.hasAttribute("data-color")) {
-            document.body.className = e.target.getAttribute('data-color');
+            setColorScheme(e.target.getAttribute('data-color'));    
         }
     });
 
-    Modal.init();
+    
+
+    init();
 })
+
+function init() {
+    Modal.init();
+    setColorScheme(COLOR_SCHEME);
+}
