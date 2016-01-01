@@ -140,8 +140,23 @@ h1 .material-icons {
   	cursor: pointer;
 	position: absolute;
 	top: -0.5rem;
-	right: -0.5rem;
-	
+	right: -0.5rem;	
+}
+.modal__close.text-close {
+	position: relative;
+    top: 0;
+    right: 0;
+    text-decoration: none;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    margin: 2rem 0 0 0;
+    display: block;
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    will-change: background;
+    -webkit-transition: background 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  			transition: background 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .modal__close .material-icons{
   	pointer-events: none;
@@ -256,6 +271,16 @@ body.orange {
 	background: #eb6200;
 	color: rgba(255,255,255,0.8);
 }
+.orange .modal__close.text-close {
+    background: #eb6200;
+    border: 2px solid transparent;
+    color: #FFFFFF;
+}
+.orange .modal__close.text-close:hover {
+	color: #eb6200;
+	border: 2px solid #eB6200;
+    background: #FFEBEE;
+}
 /* Lime */
 body.lime {
 	color: rgb(0, 235, 107);
@@ -284,6 +309,16 @@ body.lime {
 .lime .modal__trigger.floating {
 	background: rgb(0, 235, 107);
 	color: rgba(255,255,255,0.8);
+}
+.lime .modal__close.text-close {
+    background: rgb(0, 235, 107);
+    border: 2px solid transparent;
+    color: #FFFFFF;
+}
+.lime .modal__close.text-close:hover {
+	color: rgb(0, 235, 107);
+    background: rgba(56, 255, 51, 0.1);
+    border: 2px solid rgb(0, 235, 107);
 }
 /* B&W */
 body.black {
@@ -314,6 +349,17 @@ body.black {
 	background: rgb(80, 80, 80);
 	color: rgb(255, 255, 255);
 }
+
+.black .modal__close.text-close {
+    background: rgb(80, 80, 80);
+    border: 2px solid transparent;
+    color: #FFFFFF;
+}
+.black .modal__close.text-close:hover {
+	color: rgb(80, 80, 80);
+    background: #ffffff;
+    border: 2px solid rgb(80, 80, 80);
+}
 /* Blue */
 body.blue {
 	color: rgb(96, 151, 255);
@@ -342,4 +388,14 @@ body.blue {
 .blue .modal__trigger.floating {
 	background: rgb(96, 151, 255);
 	color: rgb(237, 251, 255);
+}
+.blue .modal__close.text-close {
+    background: rgb(96, 151, 255);
+    border: 2px solid transparent;
+    color: rgb(237, 251, 255);
+}
+.blue .modal__close.text-close:hover {
+	color: rgb(96, 151, 255);
+    background: rgb(237, 251, 255);
+    border: 2px solid rgb(96, 151, 255);
 }

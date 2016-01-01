@@ -1,6 +1,7 @@
 // Setting some global variables
 var DEFAULT_TIME = 60,
     COLOR_SCHEME = getCookie('color_scheme') || 'orange',
+    FIRST = true,
     timer, count,
     ajax = {};
 
@@ -335,7 +336,12 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 resetTimer();
             });
         } else if (e.target == counterButton && count == DEFAULT_TIME) {
-            countdownTimer();
+            if (FIRST == true) {
+                newWordButton.click();
+                FIRST = false;
+            } else {
+                countdownTimer();
+            }
         } else if (e.target.hasAttribute("data-color")) {
             setColorScheme(e.target.getAttribute('data-color'));    
         }
@@ -349,4 +355,5 @@ document.addEventListener('DOMContentLoaded', function(e) {
 function init() {
     Modal.init();
     setColorScheme(COLOR_SCHEME);
+    resetTimer();
 }
