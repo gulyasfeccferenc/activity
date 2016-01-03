@@ -1,8 +1,9 @@
 // Setting some global variables
 var DEFAULT_TIME = 60,
+    DEFAULT_TICK = new Audio('/web/assets/tick.mp3'),
     COLOR_SCHEME = getCookie('color_scheme') || 'orange',
     FIRST = true,
-    timer, count,
+    timer, count, tick,
     ajax = {};
 
 //Dealing with AJAX
@@ -74,6 +75,8 @@ function countdownTimer() {
 
     } else {
         count--;
+        tick.currentTime = 0;
+        tick.play();
         timer = setTimeout('countdownTimer()', 1000);
     }
 }
@@ -355,5 +358,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
 function init() {
     Modal.init();
     setColorScheme(COLOR_SCHEME);
+    tick = DEFAULT_TICK;
     resetTimer();
 }

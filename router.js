@@ -48,15 +48,25 @@ function serve(request, response) {
 
     }
 
-    if(request.url.indexOf('.css') != -1){ //req.url has the pathname, check if it conatins '.css'
-      fs.readFile(__dirname + request.url, function (err, data) {
-        if (err) console.log(err);
-        response.writeHead(200, {'Content-Type': 'text/css'});
-        response.write(data);
-        response.end();
-      });
+  if(request.url.indexOf('.css') != -1){ //req.url has the pathname, check if it conatins '.css'
+    fs.readFile(__dirname + request.url, function (err, data) {
+      if (err) console.log(err);
+      response.writeHead(200, {'Content-Type': 'text/css'});
+      response.write(data);
+      response.end();
+    });
 
-    }
+  }
+
+  if(request.url.indexOf('.mp3') != -1){ //req.url has the pathname, check if it conatins '.css'
+    fs.readFile(__dirname + request.url, function (err, data) {
+      if (err) console.log(err);
+      response.writeHead(200, {'Content-Type': 'audio/mpeg'});
+      response.write(data);
+      response.end();
+    });
+
+  }
 }
 
 //Export
