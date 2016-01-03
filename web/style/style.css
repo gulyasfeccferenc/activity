@@ -399,3 +399,11 @@ body.blue {
     background: rgb(237, 251, 255);
     border: 2px solid rgb(96, 151, 255);
 }
+
+@media only screen and (max-width: 1024px) {
+  .main article {
+      font-size: 6rem;
+      min-width: 10rem;    
+      width: 90%;
+  }
+}
