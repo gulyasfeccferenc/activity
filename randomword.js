@@ -1,18 +1,12 @@
 var fs = require('fs'),
-	words = words || 'asdf';
+	words = words || new Array();
 
-function chunkData(data) {
-	var array = data.split(",");
+function getRandomWord(wordList, callback) {
+	var array = wordList[Math.round(Math.random() * wordList.length)];//.split(",");
 
-	return array[Math.round(Math.random() * array.length)];
-}
-
-function getRandomWord(callback) {
-	fs.readFile('./words.csv', 'utf8', function(error, data) {
-		if (error) throw error;
-		chunkData(data);
-		callback(chunkData(data));
-	});
+		console.log(wordList);
+		//array[Math.round(Math.random() * array.length)];
+		callback('kaka');		
 }
 
 module.exports.generate = getRandomWord;

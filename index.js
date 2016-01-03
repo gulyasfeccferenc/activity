@@ -35,7 +35,7 @@ function mongoAccess(callback) {
 function serverInit() {
 	http.createServer(function (request, response) {
 		router.home(request, response);
-		router.generate(request, response);
+		router.generate(request, response, wordList);
 		router.serve(request, response);
 	}).listen(process.env.PORT || 80);
 }

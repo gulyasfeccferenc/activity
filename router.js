@@ -25,11 +25,11 @@ function home(requests, response) {
 }
 
 //generate a new random word
-function generate(request, response) {
+function generate(request, response, wordList) {
   //if url == "/...."
   var path = request.url.replace("/", "");
   if(path === 'random') {
-     randomWord.generate(function(e) {
+     randomWord.generate(wordList, function(e) {
         response.writeHead(200, {'Content-Type':'plain/text'});  
         response.end(e);   
      })   
