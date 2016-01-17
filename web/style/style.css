@@ -65,6 +65,13 @@ nav a.title {
     cursor:pointer;
 }
 
+.main article .material-icons {
+    font-size: 12rem;
+    font-weight: 100;
+    line-height: 0;
+    padding: 0;
+    vertical-align: sub;
+}
 h1 .material-icons {
     font-size: 7rem;
     text-align: center;

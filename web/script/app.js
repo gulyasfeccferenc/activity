@@ -75,8 +75,8 @@ function countdownTimer() {
 
     } else {
         count--;
-        tick.currentTime = 0;
-        tick.play();
+        //tick.currentTime = 0;
+        //tick.play();
         timer = setTimeout('countdownTimer()', 1000);
     }
 }
@@ -88,7 +88,7 @@ function countdownTimer() {
 function resetTimer() {
     clearTimeout(timer);
     count = DEFAULT_TIME;
-    displayTime('&#9658');
+    displayTime('<i class="material-icons">play_arrow</i>');
 }
 
 /**
@@ -141,6 +141,20 @@ function setColorScheme(value) {
     document.body.className = value;
 }
 
+/**
+* Will set the default ticking noise if no cookie about this.
+*/
+function initTick() {
+    tick = getCookie('tick') || DEFAULT_TICK;
+}
+
+/**
+* Toggle the ticking sound together with the status icons.
+* @param {string}
+ */
+function toggleTick() {
+
+}
 
 var Modal = (function() {
 
@@ -338,7 +352,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
                 showNewWord(wordContainer, e);
                 resetTimer();
             });
-        } else if (e.target == counterButton && count == DEFAULT_TIME) {
+        } else if ((e.target == counterButton || e.target.parentElement == counterButton) 
+            && count == DEFAULT_TIME) {
             if (FIRST == true) {
                 newWordButton.click();
                 FIRST = false;
@@ -347,6 +362,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
             }
         } else if (e.target.hasAttribute("data-color")) {
             setColorScheme(e.target.getAttribute('data-color'));    
+        } else if (e.target.hasAttribute("data-sound-toggle")) {
+            toggleTick();
         }
     });
 
@@ -358,6 +375,5 @@ document.addEventListener('DOMContentLoaded', function(e) {
 function init() {
     Modal.init();
     setColorScheme(COLOR_SCHEME);
-    tick = DEFAULT_TICK;
     resetTimer();
 }
